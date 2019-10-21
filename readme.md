@@ -45,11 +45,12 @@ https://docs.google.com/document/d/1J0LnjzFeFTjiL9_Y2tFDYUIMMvFZcaay7bFY-L6reKw/
   * The desired and current values of position, orientation and velocity are received from the user.
   * Parameters like the Look ahead distance (<img src="https://latex.codecogs.com/gif.latex?L_h" title="L_h" />), the Propotional (<img src="https://latex.codecogs.com/gif.latex?K_p" title="K_p" />) and Derivative gain (<img src="https://latex.codecogs.com/gif.latex?K_d" title="K_d" />) are calculated.
   * Initialize the orientation error as the difference in the current and target orientation.
-  * Calculate the required trajectory to achieve desired position and orientation. 
   * Calculate the position error as the difference in the current position in the trajectory and target position.
-  * Calculate and steering angle and update the current position and orientation to the next set point in the trajectory.
-  * Recalculate position and orientation error at the next set point in the trajectory.
-  * Continue the above mentioned process till current orientation is equal to desired orientation and position error is between threshold values. 
+  * Calculate and steering angle.
+  * Calculate the position and orientation of the next set point in the trajectory.
+  * Update the current position and orientation with the obtained values in above step.
+  * Recalculate position error, orientation error and steering angle of the next set point in the trajectory.
+  * Continue the above mentioned process till orientation and position are between threshold values. 
   * Output the achieved final position and orientation. 
   * The two drive wheel velocities are calculated and given as the output.
 
@@ -73,8 +74,8 @@ https://docs.google.com/document/d/1J0LnjzFeFTjiL9_Y2tFDYUIMMvFZcaay7bFY-L6reKw/
 - [x] Perform testing and fix defects if any.
 - [x] Run cpplint and cppcheck as part of Sprint 2.
 - [x] Run Valgrind to detect memory leaks. Fix all detected memory leaks.
-- [ ] Generate Doxygen documentation in the docs folder.
-- [ ] Make sure that the repository is updated with all delivarables as mentioned in the proposal.
+- [x] Generate Doxygen documentation in the docs folder.
+- [x] Make sure that the repository is updated with all delivarables as mentioned in the proposal.
 
 ## Discovered bugs in the code
 - After attaining stability, the orientation error fluctuates between threshold values.

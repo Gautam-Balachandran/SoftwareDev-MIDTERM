@@ -132,18 +132,13 @@ double AckermannController::computeSteering(std::vector<double> newD,
   th = AckermannController::getTheta();
   // thetaE is the difference between current & required orientations
   thetaE = th - newTheta;
-  thetaIncr = static_cast<double>(fabs(thetaE / 10));
+  // dE is distance between the current and desired positions
+  dE = (d[1] - newD[1]) * cos(newTheta * M_PI / 180)
+      - (d[0] - newD[0]) * sin(newTheta * M_PI / 180);
   // Estimating the trajectory path in small increments
-  // Calculation of orientation (thetaD) of the trajectory at a point
-  thetaD = th + thetaIncr;
-  // Calculating the coordinates of the trajectory at a point
-  xD = d[0] + lH * cos(thetaD * M_PI / 180);
-  yD = d[1] + lH * sin(thetaD * M_PI / 180);
-  // dE is distance between the estimated and desired trajectory
-  dE = (yD - newD[1]) * cos(newTheta * M_PI / 180)
-      - (xD - newD[0]) * sin(newTheta * M_PI / 180);
-  // Loop will run till the position error (dE) is between -10 and 10
-  while (-10 > dE || dE > 10) {
+  thetaIncr = static_cast<double>(fabs(thetaE / 3));
+  // Loop will run till the position error (dE) is between -5 and 5
+  while (-5 > dE || dE > 5) {
     double k1, a1, a2, inner;
     // Printing position and orientation errors in the file
     myfile << "Current Orientation : " << th << "\n";
@@ -173,30 +168,34 @@ double AckermannController::computeSteering(std::vector<double> newD,
     phi = atan(inner) * 180 / M_PI;
     // Printing steering angle for every iteration
     myfile << "PHI : " << phi << "\n";
-    // Update values of th, d, xD, yD
-    th = thetaD;
-    d[0] = xD;
-    d[1] = yD;
-    if (d[0] < newD[0]) {
-      xD += lH * cos(th * M_PI / 180);
-    } else if (d[0] > newD[0]) {
-      xD -= lH * cos(th * M_PI / 180);
-    }
-    if (d[1] < newD[1]) {
-      yD += lH * sin(th * M_PI / 180);
-    } else if (d[1] > newD[1]) {
-      yD -= lH * sin(th * M_PI / 180);
-    }
+    // Calculation of orientation of the trajectory at next set point
     if (th < newTheta) {
       thetaD = th + thetaIncr;
     } else {
       thetaD = th - thetaIncr;
     }
-    dE = -(xD - newD[0]) * sin(newTheta * M_PI / 180)
-        + (yD - newD[1]) * cos(newTheta * M_PI / 180);
-    if (((newTheta - 3) >= th || th >= (newTheta + 3))) {
-      thetaE = thetaD - newTheta;
+    // Calculating the coordinates of next set point in the trajectory
+    if (d[0] < newD[0]) {
+      xD = d[0] + lH * cos(th * M_PI / 180);
+    } else if (d[0] > newD[0]) {
+      xD = d[0] - lH * cos(th * M_PI / 180);
     }
+    if (d[1] < newD[1]) {
+      yD = d[1] + lH * sin(th * M_PI / 180);
+    } else if (d[1] > newD[1]) {
+      yD = d[1] - lH * sin(th * M_PI / 180);
+    }
+    // Update values of th, d, xD, yD
+    th = thetaD;
+    d[0] = xD;
+    d[1] = yD;
+    // Calculating position and orientation errors
+    dE = -(d[0] - newD[0]) * sin(newTheta * M_PI / 180)
+        + (d[1] - newD[1]) * cos(newTheta * M_PI / 180);
+    thetaE = th - newTheta;
+    /*if (((newTheta - 3) >= th || th >= (newTheta + 3))) {
+     thetaE = thetaD - newTheta;
+     }*/
     myfile
         << "=============================================================== \n";
   }

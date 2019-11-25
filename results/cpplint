@@ -1,11 +1,32 @@
-Run the following command:
-
-cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
-
-Output:
-
-Done processing ./app/main.cpp
+gautam@gautam-Inspiron-7373:/media/gautam/Secondary Drive/Software Dev/Midterm/SoftwareDev-MIDTERM$ cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
 Done processing ./app/AckermannController.cpp
-Done processing ./test/main.cpp
+Done processing ./app/main.cpp
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:0:  No copyright message found.  You should have a line: "Copyright [year] <Copyright Owner>"  [legal/copyright] [5]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:36:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:82:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:87:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:163:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:178:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:211:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:220:  Extra space before )  [whitespace/parens] [2]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:314:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:459:  Missing space after ,  [whitespace/comma] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:464:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:470:  Missing space after ,  [whitespace/comma] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:477:  Missing space after ,  [whitespace/comma] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:482:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:488:  Missing space after ,  [whitespace/comma] [3]
+./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:514:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
+Done processing ./CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp
+./test/AckermannControllerMock.cpp:32:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+./test/AckermannControllerMock.cpp:40:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+./test/AckermannControllerMock.cpp:47:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+./test/AckermannControllerMock.cpp:58:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+./test/AckermannControllerMock.cpp:59:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+./test/AckermannControllerMock.cpp:61:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+./test/AckermannControllerMock.cpp:62:  Missing space after ,  [whitespace/comma] [3]
+./test/AckermannControllerMock.cpp:65:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
+Done processing ./test/AckermannControllerMock.cpp
 Done processing ./test/AckermannControllerTest.cpp
-
+Done processing ./test/main.cpp
+Total errors found: 24

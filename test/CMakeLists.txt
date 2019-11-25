@@ -4,6 +4,7 @@ add_executable(
     cpp-test
     main.cpp
     AckermannControllerTest.cpp
+    AckermannControllerMock.cpp
     ../app/AckermannController.cpp
 )
 

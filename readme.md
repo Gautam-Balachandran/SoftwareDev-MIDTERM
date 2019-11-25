@@ -195,6 +195,15 @@ perspetive view (or Windows->Perspective->Open Perspective->C/C++).
 - Git
 
     It is possible to manage version control through Eclipse and the git plugin, but it typically requires creating another project.
+    
+## Google Mock
+
+Google mock is a testing framework used to test dependency between classes and methods. 
+
+Google mock has been added to the project to test the interface between the classes. The class AckermannController has been mocked and one test case has been added in AckermannControllerMock.cpp in test directory. 
+
+CMakeLists.txt has been updated to link googlemock libraries in both main repository and test directory.
+The test case steeringTest used to test the steering angle computed has been properly invoked.
 
 ## Doxygen
 
